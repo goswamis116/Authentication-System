@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Home page</title>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+    <% if (user) { %>
+        <!-- If user is signed in -->
+        <div class="container mt-5">
+            <div class="alert alert-success" role="alert">
+                Hey <%= user.email %>! You have successfully logged in. Your details are here:
+            </div>
+            <p>Email: <%= user.email %></p>
+        </div>
+    <% } else { %>
+        <!-- If user is not signed in -->
+        <div class="container mt-5">
+            <h1>You need to sign in first</h1>
+            <a href="/user/signin" class="btn btn-primary">Sign In</a>
+        </div>
+    <% } %>
+    <%- include('./partials/script') %>
+</body>
+</html>
